@@ -89,11 +89,8 @@ var numbersToAdd3 = []
 // Expected output: []
 
 let accumulatingNumbers = (array) => {
-  //the current value is set to the previous value + current value
-  for (let i = 1; i < array.length; i++)  {
-    array[i] = array[i] + array[i-1]
-  }
-  return array;
+  //the current index value is previous value plus current value.  Ternary opertaor will prevent the code from breaking if its on index of 0.
+  return array.map((value, index, array) => array[index] += (array[index - 1] ? array[index - 1] : 0))
 }
 
 console.log(accumulatingNumbers(numbersToAdd1))
